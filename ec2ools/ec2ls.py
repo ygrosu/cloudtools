@@ -1,6 +1,9 @@
 #! /usr/bin/env python
 """ listing of ec2 instances
 """
+__author__ = 'yairgrosu'
+__email__ = 'yair@grosu.io'
+
 import argparse
 import os
 import json
@@ -129,6 +132,8 @@ Now ... just Command-V and press ENTER.
         print "copied this to clipboard: %s" % commands[args.i]
         print "===  %s  ===\n" % the_instances[args.i][2]
 
+def main():
+    ec2ls()
 
 if __name__ == '__main__':
-    ec2ls()
+    main()
