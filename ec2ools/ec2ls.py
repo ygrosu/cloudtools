@@ -11,24 +11,10 @@ import boto
 import boto.ec2
 import boto.vpc
 import boto.rds
+from settings import CTSettings
 
 
-def get_settings():
-    """
-    :return:obtain the settings to use
-    """
-    settings = {'env': 'test', 'type': 'ALL', 'env_tag': 'Env', 'region': 'us-west-2',
-                'key_name': 'KEY_FILE_PLACEHOLDER'}
-    settings_fl = os.getenv('EC2LS_FILE', './ec2settings.json')
-    if os.path.exists(settings_fl):
-        settings.update(json.load(open('./ec2settings.json')))
-    else:
-        print "Missing environment value: 'EC2LS_FILE', and no ./ec2settings.json in workdir."
-        print "Exiting."
-        os.sys.exit(1)
-    return settings
-
-SETTINGS = get_settings()
+SETTINGS = CTSettings()
 
 
 def get_org_instances(the_env, prefix, suffix="", partial=""):
@@ -101,8 +87,10 @@ Now ... just Command-V and press ENTER.
 
     """
 
-    parser.add_argument('-e', help="Name of the %s tag of the nodes. default is (%s)" %
-                        (SETTINGS['env_tag'], SETTINGS['env']), default=SETTINGS['env'])
+    print SETTINGS.__dict__
+    print SETTINGS['env']
+    parser.add_argument('-e', help="Name of the %s tag of the nodes. default is (%s)" % (SETTINGS['env_tag'],
+                         SETTINGS['env']), default=SETTINGS['env'])
     parser.add_argument('-t', help="Name prefix. 'ALL' is the default", default='ALL')
     parser.add_argument('-s', help='suffix of type: [optional]', default="")
     parser.add_argument('-p', help='partial text to look for: [optional]', default="")

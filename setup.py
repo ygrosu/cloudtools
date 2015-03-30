@@ -17,7 +17,7 @@ setup_result = setup(
         'console_scripts': [
         'ec2ls = ec2ools.ec2ls:main',
         ]
-    }
+    }, requires=['boto']
 )
 
 
