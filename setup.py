@@ -12,7 +12,7 @@ setup(
     license='',
     author='yairgrosu',
     author_email='yair@grosu.io',
-    description='cloudtools - your AWS swiss army knife',
+    description='cloudtools - my AWS swiss army knife',
     entry_points={
         'console_scripts': [
             'ec2ls = ec2ools.ec2ls:main',
