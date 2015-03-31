@@ -1,12 +1,12 @@
-#! /usr/bin/env python
-""" listing of ec2 instances
 """
+listing of ec2 instances
+"""
+
 __author__ = 'yairgrosu'
 __email__ = 'yair@grosu.io'
 
 import argparse
 import os
-import json
 import boto
 import boto.ec2
 import boto.vpc
@@ -39,7 +39,7 @@ def get_org_instances(the_env, prefix, suffix="", partial=""):
     return instances, environments
 
 
-def ec2ls():
+def int_ec2ls():
     """ parse input and invoke ec2 listing, provide the results back.  """
     parser = argparse.ArgumentParser(formatter_class=argparse.RawDescriptionHelpFormatter)
 
@@ -89,14 +89,14 @@ Now ... just Command-V and press ENTER.
 
     print SETTINGS.__dict__
     print SETTINGS['env']
-    parser.add_argument('-e', help="Name of the %s tag of the nodes. default is (%s)" % (SETTINGS['env_tag'],
-                         SETTINGS['env']), default=SETTINGS['env'])
+    parser.add_argument('-e', help="Name of the %s tag of the nodes. default is (%s)" %
+                        (SETTINGS['env_tag'], SETTINGS['env']), default=SETTINGS['env'])
     parser.add_argument('-t', help="Name prefix. 'ALL' is the default", default='ALL')
     parser.add_argument('-s', help='suffix of type: [optional]', default="")
     parser.add_argument('-p', help='partial text to look for: [optional]', default="")
     parser.add_argument('-i', type=int,
-                        help='position of item to put in clipboard, see numbering in the, default  last(-1), -2 is before...'
-                             ' 0 is the first, 1 is the 2nd ...', default=-1)
+                        help='position of item to be placed in the clipboard, default  last(-1),'
+                        ' -2 is before... 0,1,2 are form the start.', default=-1)
 
     args = parser.parse_args()
     print "%s\n" % args
@@ -120,8 +120,3 @@ Now ... just Command-V and press ENTER.
         print "copied this to clipboard: %s" % commands[args.i]
         print "===  %s  ===\n" % the_instances[args.i][2]
 
-def main():
-    ec2ls()
-
-if __name__ == '__main__':
-    main()

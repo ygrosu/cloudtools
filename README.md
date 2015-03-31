@@ -8,6 +8,7 @@ this is work in progress, will add them tools one at a time.
 
 
 
+
 ## ec2ls: `ls` for ec2 instances
 bash/cli listing of the AWS ec2 instances  
   allows to filter by env (assuming there is an 'Env' tag on the instance, or by name: prefix/suffix) provides the list 
@@ -21,7 +22,11 @@ bash/cli listing of the AWS ec2 instances
    -1 is the last, -2 the one before last, 1 is the first etc. 
    
    
+
    
+   
+## to build:
+ `python setup.py sdist`
    
   
   
