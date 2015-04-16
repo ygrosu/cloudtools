@@ -22,7 +22,7 @@ bash/cli listing of the AWS ec2 instances
    -1 is the last, -2 the one before last, 1 is the first etc. 
    
    
-
+## General
    
    
 ## to build:
@@ -33,3 +33,5 @@ bash/cli listing of the AWS ec2 instances
   
   
  
+General package list:
+1. Git: https://gitorious.org/git-python
